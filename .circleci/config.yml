@@ -6,11 +6,9 @@ jobs:
                 steps:
                         - checkout
                         - run: echo "Hello World!"
-                        - run:
-                                command: export CLOUDSDK_CORE_DISABLE_PROMPTS=1
                         - run: 
                                 name: Install Google Cloued
-                                command: curl https://sdk.cloud.google.com | bash
+                                command: export CLOUDSDK_CORE_DISABLE_PROMTS=1; curl https://sdk.cloud.google.com | bash
                         - run: 
                                 command: gcloud version
                         - run: 
