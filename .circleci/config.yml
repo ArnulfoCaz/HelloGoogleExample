@@ -9,7 +9,11 @@ jobs:
                         - run: 
                                 name: Decode Google Cloud Credentials       
                                 command: echo ${GOOGLE_AUTH} | base64 -i --decode > ${HOME}/gcp-key.json
-                                command: gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json 
-                                command: gcloud --quiet config set project ${GOOGLE_PROJECT_ID} 
-                                command: gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE} 
+                        - run:
+                                command: gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
+                        - run:
+                                command: gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+                        - run:
+                                command: gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+                        - run: 
                                 command: gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
