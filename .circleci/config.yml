@@ -13,7 +13,7 @@ jobs:
                                 name: Install Google Cloued
                                 command: curl https://sdk.cloud.google.com | bash
                         - run: 
-                                command: ~ /google-cloud-sdk/bin/gcloud version
+                                command: ~/google-cloud-sdk/bin/gcloud version
                         - run: 
                                 name: Decode Google Cloud Credentials       
                                 command: echo ${GOOGLE_AUTH} | base64 -i --decode > ${HOME}/gcp-key.json
