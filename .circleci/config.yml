@@ -1,6 +1,8 @@
 version: 2
 jobs:
         build:
+                environment:
+                        - CLOUDSDK_CORE_DISABLE_PROMPTS: "1"
                 docker:
                         - image: circleci/node:4.8.3
                 steps:
@@ -8,7 +10,7 @@ jobs:
                         - run: echo "Hello World!"
                         - run: 
                                 name: Install Google Cloued
-                                command: export CLOUDSDK_CORE_DISABLE_PROMTS=1 | curl https://sdk.cloud.google.com | bash
+                                command: curl https://sdk.cloud.google.com | bash
                         - run: 
                                 command: gcloud version
                         - run: 
