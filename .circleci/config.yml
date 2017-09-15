@@ -7,6 +7,11 @@ jobs:
                         - checkout
                         - run: echo "Hello World!"
                         - run: 
+                                name: Install Google Cloued
+                                command: curl https://sdk.cloud.google.com | bash
+                        - run: 
+                                command: gcloud version
+                        - run: 
                                 name: Decode Google Cloud Credentials       
                                 command: echo ${GOOGLE_AUTH} | base64 -i --decode > ${HOME}/gcp-key.json
                         - run:
